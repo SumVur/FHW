@@ -66,6 +66,7 @@ class objectManager
                 case ReflectionClassTypes::CLASS_TYPE:
                 {
                     $classParams[] = self::create($parameter->getPath());
+                    break;
                 }
                 case ReflectionClassTypes::INTERFACE_TYPE:
                 {

@@ -3,6 +3,7 @@
     <class type="app\test\test">
         <Arguments>
             <argument type="app\test\person\person" name="person"/>
+            <argument type="app\test\person\person" name="person2"/>
         </Arguments>
     </class>
 </di>

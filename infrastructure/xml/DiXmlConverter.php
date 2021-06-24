@@ -63,9 +63,15 @@ class DiXmlConverter implements XmlConvertInterface
     private function argumentProcessing(\SimpleXMLElement $argumentElement)
     {
         if (!empty((array)$argumentElement->attributes()[self::ATTRIBUTE_ARGUMENT_NAME]) && !empty((array)$argumentElement->attributes()[self::ATTRIBUTE_ARGUMENT_TYPE])) {
-            $this->result[$this->identifier] = [
-                (string)$argumentElement->attributes()[self::ATTRIBUTE_ARGUMENT_NAME] => (string)$argumentElement->attributes()[self::ATTRIBUTE_ARGUMENT_TYPE]
-            ];
+
+            $this->result=array_merge_recursive(
+                $this->result,
+                [
+                    $this->identifier=>[
+                        (string)$argumentElement->attributes()[self::ATTRIBUTE_ARGUMENT_NAME] => (string)$argumentElement->attributes()[self::ATTRIBUTE_ARGUMENT_TYPE]
+                    ]
+                ]
+            );
         }
     }
 
