@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<di xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamspaceSchemaLocation="di.xsd">
+    <class type="app\test\test">
+        <Arguments>
+            <argument type="app\test\person\person" name="person"/>
+        </Arguments>
+    </class>
+</di>

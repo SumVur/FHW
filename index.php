@@ -1,10 +1,8 @@
 <?php
 
-require('./infrastructure/autoloader/autoloader.php');
-$autoloader = new infrastructure\autoloader\autoloader();
-$autoloader->init();
+require('./infrastructure/autoloader/StaticAutoloader.php');
+\infrastructure\autoloader\StaticAutoloader::initialize();
 
 
-$test = \infrastructure\objectManager\objectManager::create('app/test/test');
-
+$test = \infrastructure\objectManager::create('app/test/test');
 var_dump($test->Get());

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:element name="di" type="xs:complexType"/>
+    <xs:complexType name="diComplexType">
+        <xs:sequence>
+            <xs:element name="class">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="Arguments">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="argument">
+                                        <xs:complexType>
+                                            <xs:attribute name="type" type="xs:string"/>
+                                            <xs:attribute name="name" type="xs:string"/>
+                                        </xs:complexType>
+                                    </xs:element>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>
