@@ -4,6 +4,8 @@
 namespace app\test;
 
 
+use app\test\person\person;
+
 class test
 {
 
@@ -12,6 +14,7 @@ class test
      */
     private $person;
     private $person2;
+    private person $person3;
 
     /**
      * test constructor.
@@ -19,13 +22,16 @@ class test
      */
     public function __construct(
         \app\test\person\infrastructure\personInfrastructure $person,
-        \app\test\person\infrastructure\personInfrastructure $person2
+        \app\test\person\infrastructure\personInfrastructure $person2,
+        \app\test\person\person $person3
     )
     {
         $this->person = $person;
         $this->person->setName('1');
         $this->person2 = $person2;
         $this->person2->setName('2');
+        $this->person3 = $person3;
+        $this->person3->setName('3');
     }
 
     /**
@@ -33,6 +39,10 @@ class test
      */
     public function Get()
     {
-        return $this->person->getName()."--".$this->person2->getName();
+        return $this->person->getName().
+            "--".
+            $this->person2->getName().
+            "--".
+            $this->person3->getName();
     }
 }
