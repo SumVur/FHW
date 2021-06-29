@@ -71,7 +71,6 @@ class objectManager
                 case ReflectionClassTypes::INTERFACE_TYPE:
                 {
                     $classParams[] = self::create(self::$DiParams[$className][$parameter->getName()]);
-
                 }
             }
         }

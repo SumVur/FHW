@@ -11,7 +11,7 @@ class XmlReader
      */
     protected function getConverter(): XmlConvertInterface
     {
-        return new DiXmlConverter();
+        return new diXmlConverter();
     }
 
     /**

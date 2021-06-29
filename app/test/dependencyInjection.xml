@@ -1,9 +1,12 @@
 <?xml version="1.0"?>
 <di xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamspaceSchemaLocation="di.xsd">
+    <virtualType name="firstPerson" >
+        <argument>app\test\person\person</argument>
+    </virtualType>
     <class type="app\test\test">
         <Arguments>
-            <argument type="app\test\person\person" name="person"/>
-            <argument type="app\test\person\person" name="person2"/>
+            <argument name="person">firstPerson</argument>
+            <argument name="person2">app\test\person\person</argument>
         </Arguments>
     </class>
 </di>
