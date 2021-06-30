@@ -1,10 +1,9 @@
 <?php
 
 
-namespace infrastructure\ReflectionClassReader;
+namespace infrastructure\ReflectionClassReader\DTO;
 
-
-class ReflectionClassTypes
+class ReflectionMethodTypes
 {
     public const CLASS_TYPE = 'Class';
     public const INTERFACE_TYPE = 'Interface';

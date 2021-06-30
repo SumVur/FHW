@@ -1,0 +1,8 @@
+<?php
+
+namespace %namespace%
+
+class Interceptor extends %intercepted_class%
+{
+    %methods_content%
+}

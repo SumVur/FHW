@@ -30,10 +30,11 @@ class XmlReader
                 $xmlContent = file_get_contents($file);
                 $result = array_replace_recursive(
                     $result,
-                    $converter->convert(new \SimpleXMLElement($xmlContent))
+                    refactoringDiXmlParameters::refactoringParameters($converter->convert(new \SimpleXMLElement($xmlContent)))
                 );
             }
         }
+
         return $result;
     }
 }

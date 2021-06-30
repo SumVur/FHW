@@ -5,8 +5,9 @@ namespace infrastructure;
 
 
 use infrastructure\autoloader\StaticAutoloader;
+use infrastructure\ReflectionClassReader\DTO\ReflectionClassInfo;
+use infrastructure\ReflectionClassReader\DTO\ReflectionMethodTypes;
 use infrastructure\ReflectionClassReader\ReflectionClassReader;
-use infrastructure\ReflectionClassReader\ReflectionClassTypes;
 use infrastructure\xml\XmlReader;
 
 class objectManager
@@ -53,24 +54,25 @@ class objectManager
         $className = str_ireplace(DIRECTORY_SEPARATOR, "\\", $className);
     }
 
+
     private static function fillClassParams(&$classParams, $className)
     {
         $ReflectionClass = new ReflectionClassReader($className);
 
-        foreach ($ReflectionClass->getClassConstructParameters() as $parameter) {
+        foreach ($ReflectionClass->getConstructParameters() as $parameter) {
             /**
-             * @var \infrastructure\ReflectionClassReader\ReflectionClassInfo $parameter
+             * @var ReflectionClassInfo $parameter
              */
 
             switch ($parameter->getType()) {
-                case ReflectionClassTypes::CLASS_TYPE:
+                case ReflectionMethodTypes::CLASS_TYPE:
                 {
                     $classParams[] = self::create($parameter->getPath());
                     break;
                 }
-                case ReflectionClassTypes::INTERFACE_TYPE:
+                case ReflectionMethodTypes::INTERFACE_TYPE:
                 {
-                    $classParams[] = self::create(self::$DiParams[$className][$parameter->getName()]);
+                    $classParams[] = self::create(self::$DiParams[$className]['Arguments'][$parameter->getName()]);
                 }
             }
         }

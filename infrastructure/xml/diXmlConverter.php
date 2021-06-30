@@ -32,60 +32,29 @@ class diXmlConverter implements XmlConvertInterface
      */
     public function convert(\SimpleXMLElement $simpleXMLElement): array
     {
-        $tmpParameters = [];
         foreach ($simpleXMLElement->children() as $firstChild) {
             switch ($firstChild->getName()) {
                 case self::CLASS_NODE:
                 {
-                    $tmpParameters = array_merge_recursive(
-                        $tmpParameters,
+                    $this->result = array_merge_recursive(
+                        $this->result,
                         $this->classProcessing->classProcessing($firstChild)
                     );
                     break;
                 }
                 case self::VIRTUAL_TYPE_NODE:
                 {
-                    $tmpParameters = array_merge_recursive(
-                        $tmpParameters,
+                    $this->result = array_merge_recursive(
+                        $this->result,
                         $this->virtualTypeProcessing->virtualTypeProcessing($firstChild)
                     );
                     break;
                 }
             }
         }
-        $this->refactoringParameters($tmpParameters);
         return $this->result;
     }
 
-    private function refactoringParameters($tmpParameters)
-    {
-        foreach ($tmpParameters[self::CLASS_NODE] as $classkey => $class) {
-            foreach ($class as $keyParameters => $parameters) {
 
-                if (array_key_exists($parameters, $tmpParameters[self::VIRTUAL_TYPE_NODE])) {
-                    $classPath = $tmpParameters[self::VIRTUAL_TYPE_NODE][$parameters];
-                    if ($classPath) {
-                        $this->result = array_merge_recursive(
-                            $this->result,
-                            [
-                                $classkey => [
-                                    $keyParameters => $classPath
-                                ]
-                            ]
-                        );
-                    }
-                } else {
-                    $this->result = array_merge_recursive(
-                        $this->result,
-                        [
-                            $classkey => [
-                                $keyParameters => $parameters
-                            ]
-                        ]
-                    );
-                }
-            }
-        }
-    }
 
 }

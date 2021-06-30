@@ -11,5 +11,5 @@ interface personInfrastructure
 {
     public function getName();
 
-    public  function setName($name);
+    public  function setName(string $name);
 }

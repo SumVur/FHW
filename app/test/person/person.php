@@ -10,7 +10,7 @@ namespace app\test\person;
 class person implements infrastructure\personInfrastructure
 {
 
-    private $name;
+    private string $name;
 
     /**
      * @return string
@@ -23,7 +23,7 @@ class person implements infrastructure\personInfrastructure
     /**
      * @param $name
      */
-    public function setName($name)
+    public function setName(string $name)
     {
         $this->name = $name;
     }

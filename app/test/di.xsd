@@ -19,6 +19,12 @@
                                 </xs:sequence>
                             </xs:complexType>
                         </xs:element>
+                        <xs:element name="Plugin">
+                            <xs:complexType>
+                                <xs:attribute name="class"/>
+                                <xs:attribute name="name"/>
+                            </xs:complexType>
+                        </xs:element>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

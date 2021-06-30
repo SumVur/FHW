@@ -8,5 +8,6 @@
             <argument name="person">firstPerson</argument>
             <argument name="person2">app\test\person\person</argument>
         </Arguments>
+        <Plugin name="fPlugin"  class="app\test\person\plugin\personPlugin"/>
     </class>
 </di>

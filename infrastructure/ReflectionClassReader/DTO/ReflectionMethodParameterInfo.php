@@ -1,10 +1,9 @@
 <?php
 
 
-namespace infrastructure\ReflectionClassReader;
+namespace infrastructure\ReflectionClassReader\DTO;
 
-
-class ReflectionClassInfo
+class ReflectionMethodParameterInfo
 {
 
     private $type;
